@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Users{% endblock %}
+
+{% block content %}
+
+<form action= "/editpost/{{post.id}}" method="POST">
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Title :</span>
+        <input type="text" class="form-control" name="title" value="{{post.title}}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Content :</span>
+        <input type="text" class="form-control" name="content" value="{{post.content}}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+    
+{% for t in tags %}
+{% if t in taginpost %}
+
+<div class="form-check"> 
+    <input class="form-check-input" name="taglist"  value = "{{t.id}}" type="checkbox" id="flexCheckDefault" checked>
+     <label class="form-check-label" for="flexCheckDefault">
+    {{t.name}}
+  </label>
+  </div>
+
+  {% else %}
+  <div class="form-check"> 
+  <input class="form-check-input" name="taglist"  value = "{{t.id}}" type="checkbox"  id="flexCheckDefault">
+  <label class="form-check-label" for="flexCheckDefault">
+    {{t.name}}
+  </label>
+</div>
+{% endif %}
+{% endfor %}
+
+      
+<button class="btn btn-success">Edit Post Tag</button>
+</form>
+<br>
+
+<form action="/">
+    <button class="btn btn-primary">cancel</button>
+</form>
+
+{% endblock %}

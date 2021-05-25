@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Users{% endblock %}
+
+{% block content %}
+<h1>{{ post.title }}</h1>
+<h3>{{ post.content }}</h3>
+<h3>by {{user.first_name }} {{user_last_name}} on {{post.created_at}}</h3>
+<table><tr><td>
+    Tags:
+</td>
+{% for t in tags %}
+<td>
+    <a type = "btn" href = "/showposttag/{{t.id}}" class="btn btn-primary btn-sm">{{ t.name }}</a>
+</td>
+{% endfor %}
+</tr>
+
+</table>
+
+<br>
+<table>
+    <tr>
+        <td><a type="btn" href="/" class="btn btn-primary">Cancel</a></button></td>
+        <td><a type="btn" href="/post/edit/{{post.id}}" class="btn btn-primary">Edit</a></button></td>
+        <td><a type="btn" href="/post/delete/{{post.id}}" class="btn btn-primary">Delete</a></button></td>
+    </tr>
+</table>
+
+
+
+{% endblock %}

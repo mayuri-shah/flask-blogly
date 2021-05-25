@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Users{% endblock %}
+
+{% block content %}
+<h1>LIST OF USERS</h1>
+<ul>{% for user in users %}
+    <li><a href="/user/{{user.id}} ">{{user.first_name}}</a></li>
+    {% endfor %}
+</ul>
+<form action= "/adduser">
+<button class="btn btn-primary">Add User</button>
+</form>
+<br>
+<h1>LIST OF TAGS</h1>
+<ul>{% for tag in tags %}
+    <li><a href="/showposttag/{{tag.id}}">{{tag.name}}</a></li>
+    {% endfor %}
+</ul>
+<form action= "/addtag">
+    <button class="btn btn-primary">Add Tag</button>
+    </form>
+<br>
+    
+    
+
+{% endblock %}

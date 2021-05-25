@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Users{% endblock %}
+
+{% block content %}
+
+<form action= "/edituser" method="POST">
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">First Name :</span>
+        <input type="text" class="form-control" name="fname" value="{{session['firstname']}}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Last Name :</span>
+        <input type="text" class="form-control" name="lname" value="{{session['lastname']}}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">IMG url :</span>
+        <input type="text" class="form-control" name="url" value="{{session['img_url']}}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+<button class="btn btn-success">Edit User</button>
+</form>
+<br>
+
+<form action="/">
+    <button class="btn btn-primary">cancel</button>
+</form>
+
+{% endblock %}

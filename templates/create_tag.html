@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Users{% endblock %}
+
+{% block content %}
+
+<form action= "/createtag" method="POST">
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Tag :</span>
+        <input type="text" class="form-control" name="txt-tag" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+<button class="btn btn-primary">Add Tag</button>
+</form>
+
+{% endblock %}

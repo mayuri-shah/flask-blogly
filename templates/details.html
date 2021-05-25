@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}User Details{% endblock %}
+
+{% block content %}
+
+ 
+  <div class="card" style="width: 18rem;">
+    <img src="{{session['img_url']}}" height="200px" width="100px" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-text"> {{session["firstname"]}} {{session["lastname"]}}</p>
+      <p class="card-text"> {{session["userid"]}}</p>
+    </div>
+  </div>
+  <br>
+ <table><tr><td>
+  <form action="/user/edit">
+    <button class="btn btn-primary">Edit</button>
+</form>
+</td>
+<td>
+  <form action="/user/delete">
+    <button class="btn btn-primary">Delete</button>
+</form>
+</td></tr></table>
+<br>
+<h2>user's Post</h2>
+<ul>{% for p in posts %}
+<li><a href="/post/{{p.id}} ">{{p.title}}  {{p.content}}</a></li>
+{% endfor %}
+</ul>
+<form action="/post/add/{{session['userid']}}">
+  <button class="btn btn-primary">Add Post</button>
+</form>
+
+<a href = "/" >Back to User List</a>
+
+
+{% endblock %}

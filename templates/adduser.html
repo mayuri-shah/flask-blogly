@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Add User{% endblock %}
+
+{% block content %}
+
+<h1>Create User</h1>
+
+<form action= "/user" method="POST">
+    
+<div class="input-group">
+    <span class="input-group-text">First and last name</span>
+    <input type="text" name = "fnametxt" aria-label="First name" class="form-control">
+    <input type="text" name = "lnametxt" aria-label="Last name" class="form-control">
+  </div>
+  <br>
+  <div class="input-group">
+    <span class="input-group-text">Image Url</span>
+    <input type="text" name = "urltxt" aria-label="First name" class="form-control">
+  </div>
+  <br>
+  <button class="btn btn-primary">SUBMIT</button>
+  
+
+  
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Post Details{% endblock %}
+
+{% block content %}
+<h2>Add Post for {{user.first_name}} {{user.last_name}}</h2>
+<form action="/post/submit/{{user.id}}" method="POST">
+<div class="mb-3">
+    <label for="formGroupExampleInput" class="form-label">Title</label>
+    <input type="text" name = "title" class="form-control" id="formGroupExampleInput" placeholder="Title">
+  </div>
+  <div class="mb-3">
+    <label for="formGroupExampleInput2" class="form-label">content</label>
+    <input type="text" name="content" class="form-control" id="formGroupExampleInput2" placeholder="content">
+  </div>
+  
+  {% for t in tags %}
+<div class="form-check"> 
+  <input class="form-check-input" name="taglist" value = "{{t.id}}" type="checkbox" value="" id="flexCheckDefault">
+  <label class="form-check-label" for="flexCheckDefault">
+    {{t.name}}
+  </label>
+</div>
+{% endfor %}
+
+
+  <button class="btn btn-primary">Add Post</button>
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Post Details{% endblock %}
+
+{% block content %}
+<h1>{{post.title}}</h1>
+<h3>{{post.content}}</h3>
+<h3>by {{session["firstname"]}}  {{session["lastname"]}}</h3>
+<table><tr><td>
+    <form action="/post/edit/{{post.id}}">
+      <button class="btn btn-primary">Edit</button>
+  </form>
+  </td>
+  <td>
+    <form action="/post/delete/{{post.id}}">
+      <button class="btn btn-primary">Delete</button>
+  </form>
+  </td>
+  <td>
+    <form action="/post/cancel/{{post.id}}">
+      <button class="btn btn-primary">Cancel</button>
+  </form>
+  </td>
+
+
+</tr></table>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Posttag{% endblock %}
+
+{% block content %}
+<h1>{{ posttag.name }}</h1>
+<ul>{% for p in posts %}
+<li><a href="/post_tag_details/{{p.id}}">{{ p.title }}</a></li>
+{% endfor %}
+</ul>
+
+<a type="btn" href="/tag/edit/{{tagid}}" class="btn btn-primary">Edit</a></button>
+<a type="btn" href="/tag/delete/{{tagid}}" class="btn btn-primary">Delete</a></button>
+
+{% endblock %}
